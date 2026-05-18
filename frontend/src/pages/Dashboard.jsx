@@ -115,17 +115,20 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              {/* Box Completed Chapter (Progress Bar Oranye) */}
-              <div style={{ backgroundColor: '#fff', padding: '25px', borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
-                <h3 style={{ margin: '0 0 20px 0', fontSize: '1.1rem', color: '#333' }}>Completed Chapter</h3>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.9rem', color: '#555' }}>
-                  <span>Chapter 1 - Bilangan Bulat</span>
-                  <span style={{ fontWeight: 'bold' }}>75/100</span>
-                </div>
-                <div style={{ width: '100%', height: '12px', backgroundColor: '#f0f0f0', borderRadius: '10px', overflow: 'hidden' }}>
-                  <div style={{ width: '75%', height: '100%', backgroundColor: '#ff7a00', borderRadius: '10px' }}></div>
-                </div>
+            {/* Box Completed Chapter (Progress Bar Oranye) - SUDAH FORMAT PERSEN */}
+            <div style={{ backgroundColor: '#fff', padding: '25px', borderRadius: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+              <h3 style={{ margin: '0 0 20px 0', fontSize: '1.1rem', color: '#333' }}>Completed Chapter</h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px', fontSize: '0.9rem', color: '#555' }}>
+                <span>Chapter 1 - Bilangan Bulat</span>
+                {/* Mengubah format dari 75/100 menjadi 75% */}
+                <span style={{ fontWeight: 'bold', color: '#333' }}>75%</span> 
               </div>
+              {/* Progress Bar Container */}
+              <div style={{ width: '100%', height: '12px', backgroundColor: '#f0f0f0', borderRadius: '10px', overflow: 'hidden' }}>
+                {/* Isi Progress Bar Warna Oranye */}
+                <div style={{ width: '75%', height: '100%', backgroundColor: '#ff7a00', borderRadius: '10px' }}></div>
+              </div>
+            </div>
 
             </div>
 

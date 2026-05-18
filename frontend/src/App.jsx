@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
-import Courses from './pages/Courses'; // 1. IMPORT HALAMAN BARU
+import Courses from './pages/Courses'; 
 import SubChapters from './pages/SubChapters';
 import MaterialView from './pages/MaterialView';
 import QuizList from './pages/QuizList';
