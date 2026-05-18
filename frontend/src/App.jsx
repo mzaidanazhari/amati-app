@@ -37,7 +37,7 @@ function App() {
   
 
         {/* DAFTARKAN ROUTE SUB CHAPTERS */}
-        <Route path="/sub-chapters" element={<SubChapters />} />
+        <Route path="/courses/:chapterId" element={<SubChapters />} />
 
         {/* TAMBAHKAN ROUTE UNTUK MATERI */}
         <Route path="/material" element={<MaterialView />} />
