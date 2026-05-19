@@ -48,57 +48,25 @@ const Settings = () => {
       {/* SIDEBAR TUNGGAL */}
       <Sidebar activeMenu="Settings" />
 
-      {/* WADAH UTAMA KANAN */}
+ {/* WADAH UTAMA KANAN */}
       <main style={{ flex: '1', display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
         
-        {/* ================= HEADER TOP BAR + DROPDOWN INTERAKTIF ================= */}
-        <header style={{ backgroundColor: '#fff', padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #e0e0e0', position: 'relative', zIndex: 100 }}>
-          <div style={{ position: 'relative', width: '300px', display: 'flex', alignItems: 'center' }}>
-            <span style={{ position: 'absolute', left: '12px', display: 'flex', alignItems: 'center' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </span>
-            <input type="text" placeholder="Search or type" style={{ width: '100%', padding: '10px 10px 10px 40px', borderRadius: '10px', border: '1px solid #e0e0e0', backgroundColor: '#f8f9fa', outline: 'none' }} />
-          </div>
-
-          {/* Avatar Profil Pemicu Dropdown */}
-          <div style={{ position: 'relative' }}>
-            <div 
-              onClick={() => setShowDropdown(!showDropdown)} 
-              style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ffcc00', cursor: 'pointer', overflow: 'hidden', border: '2px solid #007bff' }}
-            >
-              <img src="https://via.placeholder.com/40" alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-
-            {/* KOTAK MENU DROPDOWN */}
-            {showDropdown && (
-              <div style={{ position: 'absolute', right: 0, top: '50px', backgroundColor: '#fff', width: '260px', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', border: '1px solid #eee', padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: '#ffcc00', overflow: 'hidden' }}>
-                    <img src="https://via.placeholder.com/45" alt="Avatar" />
-                  </div>
-                  <div>
-                    <h4 style={{ margin: 0, fontSize: '0.95rem', color: '#333' }}>Anna Carescco</h4>
-                    <p style={{ margin: 0, fontSize: '0.8rem', color: '#888' }}>annacarescco@gmail.com</p>
-                    <span style={{ display: 'inline-block', marginTop: '4px', padding: '3px 10px', backgroundColor: '#007bff', color: '#fff', borderRadius: '20px', fontSize: '0.7rem', fontWeight: 'bold' }}>Intermediate</span>
-                  </div>
-                </div>
-                <hr style={{ border: 'none', height: '1px', backgroundColor: '#eee', margin: 0 }} />
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                  <li onClick={() => { scrollToSection(profileRef); setShowDropdown(false); }} style={{ padding: '10px', borderRadius: '8px', cursor: 'pointer', color: '#333', fontSize: '0.9rem' }}>Profile</li>
-                  <li onClick={() => { scrollToSection(notificationsRef); setShowDropdown(false); }} style={{ padding: '10px', borderRadius: '8px', cursor: 'pointer', color: '#333', fontSize: '0.9rem' }}>Settings</li>
-                  <hr style={{ border: 'none', height: '1px', backgroundColor: '#f5f5f5' }} />
-                  <li onClick={() => navigate('/')} style={{ padding: '10px', borderRadius: '8px', cursor: 'pointer', color: '#ff3366', fontSize: '0.9rem', fontWeight: '600' }}>Sign Out</li>
-                </ul>
-              </div>
-            )}
-          </div>
-        </header>
+        {/* TOP BAR SUDAH DIHAPUS TOTAL DI SINI */}
 
         {/* ================= AREA KONTEN SCROLLABLE SINGLE-CONTAINER ================= */}
-        <div style={{ flex: '1', padding: '40px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '50px', scrollBehavior: 'smooth' }}>
+        {/* KUNCI: Menambahkan paddingTop: '40px' agar konten tidak tersembunyi saat di-scroll otomatis */}
+        <div style={{ 
+          flex: '1', 
+          padding: '40px 40px 60px 40px', // Memberi ruang ekstra di bawah dan atas
+          overflowY: 'auto', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '50px', 
+          scrollBehavior: 'smooth' 
+        }}>
           
           {/* CONTAINER 1: BLOK PROFIL */}
-          <div ref={profileRef} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div ref={profileRef} style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '10px' }}>
             <div>
               <h1 style={{ margin: 0, color: '#002d72', fontSize: '1.8rem', fontWeight: '700' }}>Profil</h1>
               <p style={{ margin: '5px 0 0 0', color: '#666', fontSize: '0.95rem' }}>Manage your account and preferences</p>
@@ -145,13 +113,26 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '15px', marginTop: '35px' }}>
+              {/* GRUP TOMBOL DENGAN LOGOUT INDEPENDEN */}
+              <div style={{ display: 'flex', gap: '15px', marginTop: '35px', alignItems: 'center' }}>
                 <button style={{ padding: '12px 30px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}>Save Changes</button>
                 <button style={{ padding: '12px 30px', backgroundColor: '#fff', border: '1px solid #ccc', color: '#666', borderRadius: '10px', cursor: 'pointer' }}>Cancel</button>
+                
+                <button 
+                  onClick={() => navigate('/')} 
+                  style={{ 
+                    padding: '12px 30px', backgroundColor: '#fff', border: '1px solid #ff3366', color: '#ff3366', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer',
+                    marginLeft: 'auto', transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ff3366'; e.currentTarget.style.color = '#fff'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#fff'; e.currentTarget.style.color = '#ff3366'; }}
+                >
+                  Logout
+                </button>
               </div>
+
             </div>
           </div>
-
 
           {/* CONTAINER 2: BLOK SETTINGS NOTIFIKASI */}
           <div ref={notificationsRef} style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingBottom: '40px' }}>
