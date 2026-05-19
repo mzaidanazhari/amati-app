@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 import Topbar from '../components/Topbar';
 import { coursesData } from '../data/coursesData'; // 2. Ambil data store luar
 
-const SubChapters = () => {
+const CoursesSubChapters = () => {
   const navigate = useNavigate();
   
   // 3. Tangkap ID Chapter dari URL browser (misal: 'ch1' atau 'ch2')
@@ -58,9 +58,25 @@ const SubChapters = () => {
             {currentChapter.subChapters.map((sub) => (
               <div 
                 key={sub.id}
-                onClick={() => navigate(`/material`)} // Nanti lembar baca juga bisa dibuat dinamis seperti ini!
-                style={{ backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.02)', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
-              >
+                onClick={() => {
+                if (sub.topics && sub.topics.length > 0) {
+                  // Mengarahkan otomatis ke topik pertama dari sub-bab yang diklik
+                  navigate(`/material/${chapterId}/${sub.id}/${sub.topics[0].id}`);
+                } else {
+                  alert("Topik materi untuk sub-bab ini belum diisi di coursesData.js!");
+                }
+              }}
+              style={{ 
+                backgroundColor: '#fff', 
+                borderRadius: '20px', 
+                overflow: 'hidden', 
+                boxShadow: '0 4px 15px rgba(0,0,0,0.02)', 
+                border: '1px solid #f0f0f0', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                cursor: 'pointer' 
+              }}
+            >
                 <div style={{ height: '6px', backgroundColor: '#5c86ff' }}></div>
                 <div style={{ padding: '25px 30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
                   <div>
@@ -87,4 +103,4 @@ const SubChapters = () => {
   );
 };
 
-export default SubChapters;
+export default CoursesSubChapters;

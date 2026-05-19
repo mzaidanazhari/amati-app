@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import Topbar from '../components/Topbar';
 
 const ExamList = () => {
   const navigate = useNavigate();
@@ -29,21 +30,7 @@ const ExamList = () => {
       <main style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
         
         {/* HEADER TOP BAR */}
-        <header style={{ backgroundColor: '#fff', padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #e0e0e0' }}>
-          <div style={{ position: 'relative', width: '300px', display: 'flex', alignItems: 'center' }}>
-            <span style={{ position: 'absolute', left: '12px', display: 'flex', alignItems: 'center' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </span>
-            <input type="text" placeholder="Search or type" style={{ width: '100%', padding: '10px 10px 10px 40px', borderRadius: '10px', border: '1px solid #e0e0e0', backgroundColor: '#f8f9fa', outline: 'none', fontSize: '0.9rem' }} />
-          </div>
-
-          <div onClick={() => setShowProfileDropdown(!showProfileDropdown)} style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#ffcc00', cursor: 'pointer', overflow: 'hidden', border: '2px solid #007bff' }}>
-            <img src="https://via.placeholder.com/40" alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-        </header>
+        <Topbar />
 
         {/* AREA UTAMA DAFTAR EXAM */}
         <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '30px', overflowY: 'auto', flex: '1' }}>

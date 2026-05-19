@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import Courses from './pages/Courses'; 
-import SubChapters from './pages/SubChapters';
-import MaterialView from './pages/MaterialView';
+import CoursesSubChapters from './pages/CoursesSubChapters';
+import CoursesMaterialView from './pages/CoursesMaterialView';
 import QuizList from './pages/QuizList';
 import QuizWorkspace from './pages/QuizWorkspace';
 import QuizResult from './pages/QuizResult';
@@ -23,8 +23,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/sub-chapters" element={<SubChapters />} />
-        <Route path="/material" element={<MaterialView />} />
+        <Route path="/sub-chapters" element={<CoursesSubChapters />} />
+        <Route path="/material" element={<CoursesMaterialView />} />
         <Route path="/quiz" element={<QuizList />} />
         <Route path="/quiz/workspace" element={<QuizWorkspace />} />
         <Route path="/quiz/result" element={<QuizResult />} />
@@ -37,10 +37,10 @@ function App() {
   
 
         {/* DAFTARKAN ROUTE SUB CHAPTERS */}
-        <Route path="/courses/:chapterId" element={<SubChapters />} />
+        <Route path="/courses/:chapterId" element={<CoursesSubChapters />} />
 
         {/* TAMBAHKAN ROUTE UNTUK MATERI */}
-        <Route path="/material" element={<MaterialView />} />
+        <Route path="/material/:chapterId/:subChapterId/:topicId" element={<CoursesMaterialView />} />
 
         {/* 2. ROUTE KHUSUS ADMIN CMS */}
         <Route path="/admin/courses" element={<AdminCourses />} />
